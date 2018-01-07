@@ -1,0 +1,62 @@
+# Capstone Project Proposal: Quantified Self
+January 7, 2018
+
+Using personal [FitBit Flex 2](https://www.fitbit.com/flex2) data compiled since October 4, 2017, I will observe the following.
+
+__Activity Data__
+
+* Calories burned
+* Steps
+* Distance
+* Minutes sedentary
+* Minutes lightly active
+* Minutes fairly active
+* Minutes very active
+* Activity calories
+
+__Sleep Data__
+
+* Start time
+* End time
+* Minutes asleep
+* Minutes awake
+* Number of awakenings
+* Time in bed
+
+__Questions to Answer__
+
+* Do correlations exist between activity and sleep?
+    + Are high activity days followed by nights of quality sleep (lower numbers of awakenings)?
+    + Are high activity days followed by higher minutes of sleep?
+* What are my sleep trends?
+    + How consistent is my sleep?
+    + Were there wild fluctuations in sleep start and end time over the period studied?
+    + On what day of the week do I spend the most time in bed?
+    + On what day of the week do I spend the most minutes asleep?
+    + On what day of the week do I have the most number of awakenings?
+    + How does my sleep start time compare on work days vs. non-work days?
+    + Do my minutes asleep and sleep start and end times change with the seasons as sunrise and sunset times change?
+* What are my activity trends?
+    + On what day of the week do I take the most steps?
+    + On what day of the week do I spend the most minutes very active?
+    + On what day of the week do I take the least steps?
+    + On what day of the week do I spend the most minutes sedentary?
+    + How much do my steps fluctuate? Am I spending very high activty days followed by very low activity days?
+    
+__Other Things to Note__
+
+* FitBit tracks daytime naps, of which I've racked up one or two over the course of the data collection period - need to identify those and decided whether to strip those out or include?
+* Identifying one day in which I didn't wear device to sleep (device was charging)
+
+__Deliverables__
+
+* Raw data 
+* Code
+* Presentation deck
+
+__Application__
+
+* identify patterns
+* understand relationship between activity and sleep
+* inspire behavioral changes for more consistent sleep and activity habits
+* set realistic sleep and activity goals
