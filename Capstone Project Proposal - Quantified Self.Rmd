@@ -41,7 +41,7 @@ __Questions to Answer__
     + On what day of the week do I spend the most minutes very active?
     + On what day of the week do I take the least steps?
     + On what day of the week do I spend the most minutes sedentary?
-    + How much do my steps fluctuate? Am I spending very high activty days followed by very low activity days?
+    + How much do my steps fluctuate? Am I spending very high activity days followed by very low activity days?
     
 __Other Things to Note__
 
