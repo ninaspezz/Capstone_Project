@@ -38,8 +38,8 @@ colnames(df_sleep) <- c("sleep_start_time",
                         "minutes_light_sleep", 
                         "minutes_deep_sleep")
 
-df_act <- df_act[order(df_act$date),]
-df_sleep <- df_sleep[order(df_sleep$sleep_start_time),]
+df_act <- arrange(df_act, date)
+df_sleep <- arrange(df_sleep, sleep_start_time)
 
 df_sleep$minutes_rem_sleep <- NULL
 df_sleep$minutes_light_sleep <- NULL
@@ -51,36 +51,32 @@ df_sleep <- df_sleep[!(df_sleep$minutes_asleep <  240),]
 nrow(df_sleep)
 nrow(df_act)
 
-df_sleep[1,]
 df_act[1,]
+df_sleep[1,]
 
 df <- cbind(df_act, df_sleep)
 
 summary(df)
 
-df$day_of_week <- weekdays(as.Date(df$date))
+df <- mutate(df, day_of_week = weekdays(as.Date(df$date)))
 
 summary(df)
 
 df[1,]
 
-start_time <- mdy_hms
-end_time <- mdy_hms
-
 write_csv(df, 'fitbit_data_clean.csv')
 
-mondays <- subset(df, day_of_week = Monday)
-tuesdays <- subset(df, day_of_week = Tuesday)
-wednesdays <- subset(df, day_of_week = Wednesday)
-thursdays <- subset(df, day_of_week = Thursday)
-fridays <- subset(df, day_of_week = Friday)
-saturdays <- subset(df, day_of_week = Saturday)
-sundays <- subset(df, day_of_week = Sunday)
+df %>% 
+  group_by(day_of_week) %>% 
+  summarise(mean_minutes_asleep = mean(minutes_asleep)) %>%
+  arrange(mean_minutes_asleep)
+  
+df %>% 
+  group_by(day_of_week) %>% 
+  summarise(mean_steps = mean(steps)) %>%
+  arrange(mean_steps)
 
-mean(mondays$minutes_asleep)
-mean(tuesdays$minutes_asleep)
-mean(wednesdays$minutes_asleep)
-mean(thursdays$minutes_asleep)
-mean(fridays$minutes_asleep)
-mean(saturdays$minutes_asleep)
-mean(sundays$minutes_asleep)
+df %>% 
+  group_by(day_of_week) %>% 
+  summarise(median_steps = median(steps)) %>%
+  arrange(median_steps)
