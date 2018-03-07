@@ -7,15 +7,17 @@ df_oct <- read_csv('fitbit_activities_october_2017.csv')
 df_nov <- read_csv('fitbit_activities_november_2017.csv')
 df_dec <- read_csv('fitbit_activities_december_2017.csv')
 df_jan <- read_csv('fitbit_activities_january_2018.csv')
+df_feb <- read_csv('fitbit_activities_february_2018.csv')
 
-df_act <- rbind(df_oct, df_nov, df_dec, df_jan)
+df_act <- rbind(df_oct, df_nov, df_dec, df_jan, df_feb)
 
 dfsleep_oct <- read_csv('fitbit_sleep_october_2017.csv')
 dfsleep_nov <- read_csv('fitbit_sleep_november_2017.csv')
 dfsleep_dec <- read_csv('fitbit_sleep_december_2017.csv')
 dfsleep_jan <- read_csv('fitbit_sleep_january_2018.csv')
+dfsleep_feb <- read_csv('fitbit_sleep_february_2018.csv')
 
-df_sleep <- rbind(dfsleep_oct, dfsleep_nov, dfsleep_dec, dfsleep_jan)
+df_sleep <- rbind(dfsleep_oct, dfsleep_nov, dfsleep_dec, dfsleep_jan, dfsleep_feb)
 
 colnames(df_act) <- c("date",
                      "calories_burned",
@@ -63,6 +65,8 @@ df <- mutate(df, day_of_week = weekdays(as.Date(df$date)))
 summary(df)
 
 df[1,]
+
+str(df)
 
 write_csv(df, 'fitbit_data_clean.csv')
 
