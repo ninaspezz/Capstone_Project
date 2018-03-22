@@ -68,19 +68,20 @@ df[1,]
 
 str(df)
 
+df <- separate(df, sleep_start_time, c("sleep_start_date", "sleep_start1"), sep = " ")
+df <- separate(df, sleep_end_time, c("sleep_end_date", "sleep_end1"), sep = " ")
+summary(df)
+
+df <- select(df, -sleep_start_date, -sleep_end_date)
+summary(df)
+df[1,]
+
+df <- mutate(df, sleep_start = sleep_start1)
+df <- mutate(df, sleep_end = sleep_end1)
+
+df <- separate(df, sleep_start1, c("sleep_start_hour", "sleep_start_minute"), sep = ":")
+df <- separate(df, sleep_end1, c("sleep_end_hour", "sleep_end_minute"), sep = ":")
+df <- select(df, -sleep_start_minute, -sleep_end_minute)
+df[1,]
+
 write_csv(df, 'fitbit_data_clean.csv')
-
-df %>% 
-  group_by(day_of_week) %>% 
-  summarise(mean_minutes_asleep = mean(minutes_asleep)) %>%
-  arrange(mean_minutes_asleep)
-  
-df %>% 
-  group_by(day_of_week) %>% 
-  summarise(mean_steps = mean(steps)) %>%
-  arrange(mean_steps)
-
-df %>% 
-  group_by(day_of_week) %>% 
-  summarise(median_steps = median(steps)) %>%
-  arrange(median_steps)
